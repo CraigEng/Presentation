@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@android:color/white">
+    <RelativeLayout
+        android:id="@+id/appentry"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_alignParentRight="false"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/centerpanel">
+        <RelativeLayout
+            android:id="@+id/appentry2"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginRight="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_alignParentRight="false"
+            android:layout_marginBottom="150dp"
+            android:layout_marginTop="0dp"
+            android:background="@drawable/toppanel">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageProduct"
+                android:layout_alignParentTop="true"
+                android:layout_centerInParent="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp" />
+        </RelativeLayout>
+        <Button
+            android:id="@+id/buttonBuy"
+            android:text="Buy"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:background="@drawable/buttonbuy"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp" />
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/buttonBuy"
+            android:id="@+id/textPrice"
+            android:layout_centerHorizontal="true"
+            android:textColor="#FF222222"
+            android:layout_marginBottom="10dp" />
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/textPrice"
+            android:id="@+id/textName"
+            android:layout_centerHorizontal="true"
+            android:textColor="#FF222222"
+            android:layout_marginBottom="5dp" />
+    </RelativeLayout>
+</RelativeLayout>

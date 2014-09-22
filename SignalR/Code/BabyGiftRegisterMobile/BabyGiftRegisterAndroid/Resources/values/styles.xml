@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <style name="windowTitleBackgroundStyle">
+    <item name="android:background">#FF222222</item>
+  </style>
+  <style name="windowTitleStyle">
+    <item name="android:textColor">#FFFFFF</item>
+    <item name="android:padding">12dip</item>
+    <item name="android:textStyle">normal</item>
+    <item name="android:textSize">20sp</item>
+  </style>
+</resources>

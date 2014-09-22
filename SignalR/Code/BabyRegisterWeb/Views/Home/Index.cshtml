@@ -1,0 +1,56 @@
+﻿@model IEnumerable<BabyGiftRegisterLibrary.Model.RegisterItem>
+
+<div class="row" id="registerItems">
+    @foreach (var registerItem in Model)
+    {
+        @Html.Partial("_RegisterItem", registerItem)
+    }
+</div>
+
+<script src="@Url.Content("~/Scripts/jquery.signalR-2.1.1.min.js")"></script>
+<script src="@Url.Content("~/signalr/hubs")"></script>
+
+
+<script type="text/javascript">
+    $(function() {
+        
+        var hub = $.connection.babyRegisterHub;
+
+      
+        hub.client.setSold = function(productId) {
+            setSold(productId);
+        };
+
+        hub.client.addToRegister = function (registerItem) {
+            addToRegister(registerItem);
+        };
+
+        $.connection.hub.logging = true;
+
+        $.connection.hub.start()
+        .done(function () { console.log('Now connected! Connection Id='+$.connection.hub.id); })
+        .fail(function () { console.log('Could not connect'); });
+       
+    });
+
+    function Buy(productId) {
+        var hub = $.connection.babyRegisterHub;
+        hub.server.buy(productId);
+    }
+    
+    function setSold(productId) {
+        $("#spn_" + productId).html(" <span class='btn btn-danger' disabled='disabled'>SOLD!</span>");
+    }
+
+    function addToRegister(registerItem) {
+        var itemHtml = '<div class="col-md-3 col-sm-6"><div class="panel panel-default text-center"><div class="panel-heading">'+
+                '<span class="fa-stack fa-5x"><img src="Images/' + registerItem.ImageUrl + '" /></span></div><div class="panel-body">' +
+                '<h4>' + registerItem.Name + '</h4>' +
+                '<p>' + registerItem.Price + '</p>' +
+                '<span id="spn_' + registerItem.Id + '">' +
+                '<a href="#" class="btn btn-primary" id="btn_' + registerItem.Id + '" onclick="Buy(' + registerItem.Id + ')">Buy</a>' +
+                '</span></div></div></div>';
+
+        $("#registerItems").append(itemHtml);
+    }
+</script>
